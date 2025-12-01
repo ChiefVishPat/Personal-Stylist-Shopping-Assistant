@@ -9,17 +9,34 @@ You're browsing Uniqlo (or any store), see something you like, and want a second
 Right now it's set up for sweatshirts & hoodies from Uniqlo, but the architecture is built to work with any site and product category.
 
 ## Loom
-<div style="position: relative; padding-bottom: 64.63195691202873%; height: 0;"><iframe src="https://www.loom.com/embed/a4a1e7a244d34738a4febd70b7ec47f3" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+<div>
+
+  <a href="https://www.loom.com/share/a4a1e7a244d34738a4febd70b7ec47f3">
+
+    <p>Introducing the Tavus Personal Shopping Assistant Chrome Extension - Watch Video</p>
+
+  </a>
+
+  <a href="https://www.loom.com/share/a4a1e7a244d34738a4febd70b7ec47f3">
+
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/a4a1e7a244d34738a4febd70b7ec47f3-4e50d970629a5e7d-full-play.gif#t=0.1">
+
+  </a>
+
+</div>
 
 ## Architecture
 
 **Extension (Frontend)**
+
 - Chrome Manifest V3 extension
 - Content script injects a draggable widget on any page
 - Popup triggers the conversation flow
 - Communicates with Python backend via REST API
 
 **Backend (Python/FastAPI)**
+
 - Receives page context (URL, merchant) from extension
 - Calls a recommendation engine (currently stubbed with CSV data)
 - Formats product recommendations as JSON
@@ -27,6 +44,7 @@ Right now it's set up for sweatshirts & hoodies from Uniqlo, but the architectur
 - Returns the conversation URL to embed in the widget
 
 **Tavus Integration**
+
 - Uses Tavus Conversational Video Interface (CVI)
 - Persona is pre-configured with your style preferences
 - Product recommendations are passed as `conversational_context`
@@ -98,18 +116,21 @@ tavus_project/
 If I had more time, here's what I'd add:
 
 **Core Functionality:**
+
 - **Real-time recommendations** - Replace CSV stub with Parallel AI API for live product data. Latency is high so waiting is unreliable. Stubbed for demo.
 - **Smart URL parsing** - Automatically detect clothing type/category from page URL (e.g., extract "graphic tees" from `/men/tops/ut-graphic-tees`)
 - **Gender detection** - Extract gender filter from URL or user profile or perception instead of hardcoding
 - **Perception Model** - use perception model to get visual context of user via webcam or from screen sharing and seeing what the user is looking at to pass into recommendation engine.
 
 **User Experience:**
+
 - **Clickable product links** - Make recommendations clickable with direct product URLs
 - **Save favorites** - Let users bookmark products they're interested in
 - **Conversation history** - Show past conversations and recommendations
 - **User profile management** - Allow users to update style preferences, budget, sizes directly in extension
 
 **Technical Improvements:**
+
 - **Caching layer** - Cache recommendations per page/merchant to reduce API calls
 - **Better error handling** - Retry logic, graceful degradation, better user feedback
 - **Background sync** - Pre-fetch recommendations when extension detects retail sites
