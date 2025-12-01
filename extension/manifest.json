@@ -22,7 +22,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content/content.js"],
+      "js": ["content/page-analyzer.js", "content/content.js"],
       "css": ["content/content.css"],
       "run_at": "document_idle"
     }
@@ -33,7 +33,8 @@
     "scripting"
   ],
   "host_permissions": [
-    "<all_urls>"
+    "<all_urls>",
+    "http://localhost:8000/*"
   ],
   "web_accessible_resources": [
     {
@@ -42,4 +43,3 @@
     }
   ]
 }
-

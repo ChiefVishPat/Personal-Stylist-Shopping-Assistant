@@ -1,3 +1,5 @@
+/* Popup window styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -58,13 +60,18 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.primary-btn:hover {
+.primary-btn:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.primary-btn:active {
+.primary-btn:active:not(:disabled) {
   transform: translateY(0);
+}
+
+.primary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .info {
@@ -73,6 +80,7 @@ body {
   font-size: 13px;
   line-height: 1.5;
   max-width: 250px;
+  transition: color 0.3s ease;
 }
 
 .footer {
@@ -92,4 +100,3 @@ body {
 .footer a:hover {
   opacity: 0.8;
 }
-

@@ -1,60 +1,16 @@
-# Tavus Shopping Assistant - Chrome Extension
+# Tavus Personal Shopping Assistant
 
-A Chrome extension that embeds a Tavus-powered AI shopping assistant to help users with their shopping experience.
+Chrome extension with Python backend providing AI-powered shopping stylist via Tavus CVI.
 
 ## Project Structure
+- `extension/` - Chrome extension (frontend)
+- `backend/` - FastAPI Python backend (API orchestration)
 
-```
-tavus_project/
-├── manifest.json           # Extension manifest (Manifest V3)
-├── background/
-│   └── background.js       # Background service worker
-├── content/
-│   ├── content.js          # Content script injected into pages
-│   └── content.css         # Styles for injected widget
-├── popup/
-│   ├── popup.html          # Extension popup UI
-│   ├── popup.css           # Popup styles
-│   └── popup.js            # Popup logic
-├── assets/
-│   └── icons/              # Extension icons (16, 48, 128px)
-└── README.md
-```
+## Quick Start
+1. Backend: `cd backend && uv sync && uv run uvicorn app:app --reload --port 5000`
+2. Extension: Load unpacked from `chrome://extensions/`
 
-## How to Load the Extension
-
-1. Open Chrome and navigate to `chrome://extensions/`
-2. Enable "Developer mode" (toggle in top-right corner)
-3. Click "Load unpacked"
-4. Select the `tavus_project` folder
-5. The extension should now appear in your extensions list
-
-## How to Use
-
-1. Click the extension icon in your Chrome toolbar
-2. Click "Activate Assistant" button
-3. A widget will appear on the current webpage (bottom-right)
-4. You can drag the widget to reposition it
-5. Click the X button to close the widget
-
-## Current Features
-
-- ✅ Basic extension structure with Manifest V3
-- ✅ Popup interface for activation
-- ✅ Content script injection into web pages
-- ✅ Draggable assistant widget
-- ✅ Background service worker for event handling
-
-## Next Steps
-
-- Add Tavus API integration
-- Implement conversation creation
-- Add user profile management
-- Create settings/options page
-
-## Development Notes
-
-- Uses Manifest V3 (latest Chrome extension standard)
-- Organized folder structure for scalability
-- Ready for Tavus CVI integration
-
+## Tech Stack
+- Extension: Chrome Manifest V3, Vanilla JS
+- Backend: Python 3.11+, FastAPI, uv
+- Integration: Tavus API (Persona: p78a4e6a3f3f, Replica: rf4703150052)
