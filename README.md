@@ -9,6 +9,7 @@ You're browsing Uniqlo (or any store), see something you like, and want a second
 Right now it's set up for sweatshirts & hoodies from Uniqlo, but the architecture is built to work with any site and product category.
 
 ## Loom
+
 <div>
     <a href="https://www.loom.com/share/a4a1e7a244d34738a4febd70b7ec47f3">
       <p>Introducing the Tavus Personal Shopping Assistant Chrome Extension - Watch Video</p>
