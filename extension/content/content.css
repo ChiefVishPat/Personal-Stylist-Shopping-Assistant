@@ -1,2 +1,117 @@
 /* Styles for the Tavus assistant widget */
-/* Placeholder for now */
+
+#tavus-assistant-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2147483647; /* Maximum z-index */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  display: flex;
+}
+
+.tavus-assistant-widget {
+  position: relative;
+  /* 1/6th of screen size with min/max constraints */
+  width: clamp(400px, 16.67vw, 600px);
+  height: clamp(500px, 16.67vh, 800px);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tavus-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.tavus-title {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.tavus-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.tavus-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.tavus-body {
+  flex: 1;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: #f8f9fa;
+  overflow: hidden;
+}
+
+#tavus-conversation-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #000;
+}
+
+/* Loading state */
+.tavus-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #667eea;
+  font-size: 16px;
+}
+
+/* Animation for widget appearance */
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+#tavus-assistant-container {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .tavus-assistant-widget {
+    width: calc(100vw - 40px);
+    height: calc(100vh - 100px);
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  #tavus-assistant-container {
+    top: 10px;
+    right: 10px;
+  }
+}
