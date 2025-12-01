@@ -8,6 +8,9 @@ You're browsing Uniqlo (or any store), see something you like, and want a second
 
 Right now it's set up for sweatshirts & hoodies from Uniqlo, but the architecture is built to work with any site and product category.
 
+## Loom
+<div style="position: relative; padding-bottom: 64.63195691202873%; height: 0;"><iframe src="https://www.loom.com/embed/a4a1e7a244d34738a4febd70b7ec47f3" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
 ## Architecture
 
 **Extension (Frontend)**
