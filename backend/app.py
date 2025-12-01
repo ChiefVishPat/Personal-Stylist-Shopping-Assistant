@@ -3,11 +3,12 @@ Main FastAPI application entry point.
 Backend API for Tavus Shopping Assistant Chrome Extension.
 """
 
+import httpx
+from typing import Optional
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import Optional
-import httpx
 
 app = FastAPI(
     title="Tavus Shopping Assistant API",
@@ -69,10 +70,10 @@ async def create_conversation(page_context: PageContext):
         
         print(f"Creating conversation for: {page_context.merchant} - {page_context.url}")
         
-        # Step 1: Get product recommendations (stub)
+        # Step 1: Get product recommendations (stub - loads from CSV)
         recommendations_data = get_recommendations(
             merchant=page_context.merchant,
-            clothing_type="graphic tees"  # Could be extracted from URL in future
+            clothing_type="sweatshirts & hoodies"  # Hardcoded for stub - could be extracted from URL in future
         )
         products = recommendations_data.get("products", [])
         print(f"Found {len(products)} product recommendations")
@@ -83,7 +84,7 @@ async def create_conversation(page_context: PageContext):
             "url": page_context.url
         }
         
-        rec_engine_summary = f"Based on browsing {page_context.merchant}, we've identified {len(products)} graphic tees that match your style preferences."
+        rec_engine_summary = f"Based on browsing {page_context.merchant}, we've identified {len(products)} sweatshirts and hoodies that match your style preferences."
         
         conversation_url = await create_tavus_conversation(
             page_context=page_context_dict,

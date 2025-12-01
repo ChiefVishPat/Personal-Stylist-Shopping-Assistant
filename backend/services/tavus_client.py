@@ -1,12 +1,14 @@
 """
 Tavus API client.
-Handles conversation creation with JSON context.
+Handles conversation creation with JSON context and product recommendations.
 """
 
-import httpx
-import os
 import json
-from typing import Dict, Any, List
+import os
+from typing import Any, Dict, List
+
+import httpx
+
 from config.settings import TAVUS_CONFIG
 
 
@@ -65,7 +67,7 @@ When the user asks about recommendations, immediately reference the specific pro
 async def create_tavus_conversation(
     page_context: Dict[str, str],
     products: List[Dict[str, Any]],
-    rec_engine_summary: str = "Based on the current browsing context, we've identified several graphic tees that match your style preferences."
+    rec_engine_summary: str = "Based on the current browsing context, we've identified several sweatshirts and hoodies that match your style preferences."
 ) -> str:
     """
     Create a Tavus conversation with formatted context.
